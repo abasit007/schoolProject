@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "School", root_path, class:"navbar-brand" %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav float-end">
+      <% if student_signed_in? %>
+      <li><%= link_to "Sign Out", destroy_student_session_path, method: :delete, class: "float-end" %></li>
+      <li><%= link_to "Schedules", schedule_index_path, class: "px-4 float-end" %></li>
+    <% else %>
+      <li><%= link_to "Sign Up", new_student_registration_path, class:"active float-end" %></li>
+      <li><%= link_to "Sign In", new_student_session_path, class:"px-4 float-end" %></li>
+    <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
