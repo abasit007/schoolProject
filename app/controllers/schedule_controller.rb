@@ -5,6 +5,14 @@ class ScheduleController < ApplicationController
 
   def index
     @schedules = current_student.schedules
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Schedules",
+               page_size: "A4",
+               template: "schedule/schedule.pdf.erb"
+      end
+    end
   end
 
   def create
